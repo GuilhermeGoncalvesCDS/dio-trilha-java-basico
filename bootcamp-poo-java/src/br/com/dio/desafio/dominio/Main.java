@@ -18,19 +18,34 @@ public class Main {
 
         // Criando uma mentoria
         Mentoria mentoria = new Mentoria();
-        mentoria.setTítulo("Mentoria de Java");
+        mentoria.setTitulo("Mentoria de Java");
         mentoria.setDescricao("Tire suas dúvidas sobre Java");
         mentoria.setData(LocalDate.now());
 
-        Mentoria mentoria2 = new Mentoria();
-        mentoria2.setTítulo("Mentoria de Js");
-        mentoria2.setDescricao("Tire suas dúvidas sobre Js");
-        mentoria2.setData(LocalDate.now());
+        // Criando um bootcamp
+        Bootcamp bootcamp = new Bootcamp();
+        bootcamp.setNome("Bootcamp Java Developer");
+        bootcamp.setDescricao("Aprenda Java e se torne um desenvolvedor Java");
+        bootcamp.getConteudos().add(curso);
+        bootcamp.getConteudos().add(curso2);
+        bootcamp.getConteudos().add(mentoria);
 
-        // Exibindo os detalhes do curso e da mentoria
-        System.out.println(curso);
-        System.out.println(mentoria);
-        System.out.println(curso2);
-        System.out.println(mentoria2);
+        // Criando um dev
+        Dev dev1 = new Dev();
+        dev1.setNome("Camila");
+        dev1.inscreverBootcamp(bootcamp);
+        System.out.println("Conteúdos Inscritos Camila " + dev1.getConteudosInscritos());
+        dev1.progredir();
+        System.out.println("Conteúdos Concluídos Camila: " + dev1.getConteudosConcluidos());
+        System.out.println("XP: " + dev1.calcularTotalXp());
+
+        Dev dev2 = new Dev();
+        dev2.setNome("João");
+        dev2.inscreverBootcamp(bootcamp);
+        System.out.println("Conteúdos Inscritos João " + dev2.getConteudosInscritos());
+        dev2.progredir();
+        System.out.println("Conteúdos Concluídos João: " + dev2.getConteudosConcluidos());
+        System.out.println("XP: " + dev2.calcularTotalXp());
+
     }
 }
